@@ -1,8 +1,14 @@
 'use strict';
 
 const gulp = require('gulp');
+const wrench = require('wrench');
 
-gulp.task('default', function () {
-   return gulp.src('app/**/*.*')
-       .pipe(gulp.dest('dest'));
+wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+    return (/\.(js)$/i).test(file);
+}).map(function(file) {
+    require('./gulp/' + file);
+});
+
+gulp.task('default', ['clean'], function () {
+    gulp.start('styles')
 });
