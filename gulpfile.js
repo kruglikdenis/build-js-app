@@ -3,5 +3,6 @@
 const gulp = require('gulp');
 
 gulp.task('default', function () {
-   console.log('Hello');
+   return gulp.src('app/**/*.*')
+       .pipe(gulp.dest('dest'));
 });
