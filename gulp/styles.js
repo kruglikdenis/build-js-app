@@ -8,7 +8,6 @@ const gulpIf = require('gulp-if');
 const conf = require('./config');
 
 gulp.task('styles', function () {
-    console.log(1)
     return gulp.src(conf.paths.app + '/**/*.scss')
         .pipe(gulpIf(conf.isDev, sourcemaps.init()))
         .pipe(sass())
